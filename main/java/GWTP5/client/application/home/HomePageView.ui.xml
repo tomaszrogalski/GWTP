@@ -1,0 +1,11 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	<g:HTMLPanel>
+		<h2>Strona Startowa</h2>
+		<hr></hr>
+		<!-- Kiedy G a kiedy UI -->
+		<g:Label text="Label with text" ui:field="firstLabel"></g:Label>
+		<g:TextBox ui:field="firstBox"></g:TextBox>
+		<g:Button text="Click me!" ui:field="firstButton"></g:Button>
+	</g:HTMLPanel>
+</ui:UiBinder>
