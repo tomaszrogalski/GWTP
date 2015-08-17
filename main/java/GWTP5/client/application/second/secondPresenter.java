@@ -6,10 +6,13 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
+import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
+import GWTP5.client.application.header.headerPresenter;
 import GWTP5.client.place.NameTokens;
 
 public class secondPresenter extends Presenter<secondPresenter.MyView, secondPresenter.MyProxy> {
@@ -18,7 +21,7 @@ public class secondPresenter extends Presenter<secondPresenter.MyView, secondPre
 	}
 
 	@NameToken(NameTokens.second) // adres
-	@ProxyStandard
+	@ProxyCodeSplit
 	interface MyProxy extends ProxyPlace<secondPresenter> {
 	}
 
@@ -28,6 +31,11 @@ public class secondPresenter extends Presenter<secondPresenter.MyView, secondPre
 	secondPresenter(EventBus eventBus, MyView view, MyProxy proxy) {
 		super(eventBus, view, proxy, RevealType.Root);
 
+	}
+
+	@Override //?????
+	protected void revealInParent() {
+		RevealContentEvent.fire(this, headerPresenter.SLOT_content, this);
 	}
 
 	@Override

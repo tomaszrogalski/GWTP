@@ -1,9 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:HTMLPanel>
-	<!-- hiperlacze -->
-		<g:Hyperlink text="BACK TO FIRST" targetHistoryToken="!home"></g:Hyperlink>
-		<g:Label ui:field="secondLabel"></g:Label>
+  	<g:HTMLPanel>
+		33333333333333333333333333333333333333333333
 	</g:HTMLPanel>
 </ui:UiBinder>

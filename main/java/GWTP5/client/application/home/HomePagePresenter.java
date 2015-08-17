@@ -11,12 +11,15 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
+import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import GWTP5.client.application.ApplicationPresenter;
+import GWTP5.client.application.header.headerPresenter;
 import GWTP5.client.place.NameTokens;
 
 public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomePagePresenter.MyProxy> {
@@ -28,7 +31,7 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
 		public Button getFirstButton();
 	}
 
-	@ProxyStandard
+	@ProxyCodeSplit
 	@NameToken(NameTokens.home)
 	public interface MyProxy extends ProxyPlace<HomePagePresenter> {
 	}
@@ -41,8 +44,14 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
 		super(eventBus, view, proxy, ApplicationPresenter.SLOT_SetMainContent);
 	}
 
+	@Override//???????????
+	protected void revealInParent() {
+		RevealContentEvent.fire(this, headerPresenter.SLOT_content, this);
+	}
 
-	@Override// gdy kod ten wkleilem do onbind to po cofnieciu z seconda firsttextbox wciaz mial nazwe a w on reset resetuje sie do domyslnego
+	@Override // gdy kod ten wkleilem do onbind to po cofnieciu z seconda
+				// firsttextbox wciaz mial nazwe a w on reset resetuje sie do
+				// domyslnego
 	protected void onReset() {
 		super.onReset();
 		// ustawienie tekstu na textboxie
@@ -56,6 +65,7 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
 				// name bedzie mialo wartosc tego textboxa
 				PlaceRequest responsePlaceRequest = new PlaceRequest.Builder().nameToken(NameTokens.second)
 						.with("name", getView().getFirstBox().getText()).build();
+				//moge zmienic widocznosc w url, sprawdzic
 				placeManager.revealPlace(responsePlaceRequest);
 			}
 		});
