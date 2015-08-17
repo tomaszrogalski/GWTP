@@ -1,13 +1,14 @@
 package GWTP5.client.application.second;
 
+import com.google.gwt.layout.client.Layout;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
-import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
@@ -33,10 +34,12 @@ public class secondPresenter extends Presenter<secondPresenter.MyView, secondPre
 
 	}
 
-	@Override //?????
+	@Override // ?????
 	protected void revealInParent() {
 		RevealContentEvent.fire(this, headerPresenter.SLOT_content, this);
 	}
+	 
+	
 
 	@Override
 	public void prepareFromRequest(PlaceRequest request) {

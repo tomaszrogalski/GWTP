@@ -7,5 +7,6 @@
 		<g:Label text="Label with text" ui:field="firstLabel"></g:Label>
 		<g:TextBox ui:field="firstBox"></g:TextBox>
 		<g:Button text="Click me!" ui:field="firstButton"></g:Button>
+		<g:HTMLPanel ui:field="ratePanel" />
 	</g:HTMLPanel>
 </ui:UiBinder>

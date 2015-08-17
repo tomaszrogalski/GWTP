@@ -21,7 +21,7 @@ class headerView extends ViewImpl implements headerPresenter.MyView {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
-	@Override //Will replace existing presenter(s) in the slot.
+	@Override // Will replace existing presenter(s) in the slot.
 	public void setInSlot(Object slot, IsWidget content) {
 		if (slot == headerPresenter.SLOT_content) {
 			contentPanel.clear();
